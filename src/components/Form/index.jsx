@@ -17,7 +17,7 @@ const Form = ({ addUser }) => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label htmlFor="name">Isim</label>
+        <label htmlFor="name">İsim</label>
         <input
           id="name"
           type="text"

@@ -1,4 +1,4 @@
-import { render,screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import Form from ".";
 import userEvent from "@testing-library/user-event";
 import { expect } from "vitest";
@@ -15,7 +15,7 @@ test("formu gonderince 'addUser' dogru parametrelerle calisiyor mu? ", async () 
   //bileseni ekrana bas
   render(<Form addUser={mockFn} />);
   //1-gerekli elemanlari cagir
-  const nameInp = screen.getByLabelText("Isim");
+  const nameInp = screen.getByLabelText("İsim");
   const mailInp = screen.getByLabelText("Email");
   const ageInp = screen.getByPlaceholderText("or:24");
   const sendBtn = screen.getByRole("button");
@@ -23,7 +23,7 @@ test("formu gonderince 'addUser' dogru parametrelerle calisiyor mu? ", async () 
 
   //yol1 = isim inputunu doldur
   await user.click(nameInp);
-  await user.keyboard('firat');
+  await user.keyboard("firat");
   //yol2=mail inputunu doldur
   await user.type(mailInp, "firat@gmail.com");
   await user.type(ageInp, "25");
@@ -31,8 +31,12 @@ test("formu gonderince 'addUser' dogru parametrelerle calisiyor mu? ", async () 
   await user.click(sendBtn);
   //4-addUser dogru parametrelerle cagrildi mi
   expect(mockFn).toHaveBeenCalledWith({
-    name:"firat",
-    mail:"firat@gmail.com",
-    age:"25"
-  })
+    name: "firat",
+    mail: "firat@gmail.com",
+    age: "25",
+  });
+  //5-inputlar temizlendi mi
+  expect(nameInp.value).toBe("");
+  expect(mailInp.value).toBe("");
+  expect(ageInp.value).toBe("");
 });
