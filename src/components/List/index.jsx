@@ -13,7 +13,8 @@ const List = ({ users }) => {
       <tbody>
         {users.map((user) => (
           <tr>
-            <td>{user.name}</td>\<td>{user.mail}</td>
+            <td>{user.name}</td>
+            <td>{user.mail}</td>
             <td>{user.age}</td>
           </tr>
         ))}
