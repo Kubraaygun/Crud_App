@@ -10,7 +10,7 @@ const List = ({ users }) => {
           <th>Yas</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody data-testid="table-body">
         {users.map((user) => (
           <tr>
             <td>{user.name}</td>

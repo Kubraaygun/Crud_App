@@ -7,6 +7,7 @@ export default defineConfig({
   test:{
     environment:"jsdom",
     setupFiles:"./src/test/setup.js",
-    globals:true
+    globals:true,
+    css:true//false yaparsak css'e bagli testler calismaz isVisible gibi
   }
 })
