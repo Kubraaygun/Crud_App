@@ -15,10 +15,14 @@ const App = () => {
       age: 30,
     },
   ]);
+
+  const addUser=(newUser)=>{
+setUsers([...users,newUser])
+  }
   return (
     <div className="container">
       <h2 className=" text-center my-5">Kullanici Paneli</h2>
-      <Form />
+      <Form  addUser={addUser} />
       <List users={users} />
     </div>
   );

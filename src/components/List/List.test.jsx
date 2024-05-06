@@ -24,14 +24,27 @@ it("gonderilen her kullanici icin ekrana satir basilir", () => {
   render(<List users={testUsers} />);
 
   //table body alanını sec
-  const body=screen.getByTestId("table-body")
+  const body = screen.getByTestId("table-body");
   //body kismindaki butun satirlari ac
-//belirli bir kapsayici icindeki elemanlari secmek icin within
-const rows=within(body).getAllByRole('row')
-  
-console.log(rows.length)
+  //belirli bir kapsayici icindeki elemanlari secmek icin within()
+  const rows = within(body).getAllByRole("row");
+
   //satir sayisi users dizisindeki eleman sayisina esit mi kontrol et
-  expect(rows).toHaveLength(testUsers.length)
+  expect(rows).toHaveLength(testUsers.length);
 });
 
-//her bir kullanıcı için isim email yaş hücreleri bulunur.
+it("her bir kullanıcı için isim email yaş hücreleri bulunur.", () => {
+  render(<List users={testUsers} />);
+
+  //dizideki her bir kullanici icin ekrana kullanicinin
+  //degerlerini iceren tablo hucresi basiliyor mu
+
+  for (const user of testUsers) {
+    //kullanicinin ismini iceren tablo hucresini almak
+    screen.getByRole("cell", { name: user.name });
+    //kullanicinin mailini iceren tablo hucresini almak
+    screen.getByRole("cell", { name: user.mail });
+    //kullanicinin yasini iceren tablo hucresini almak
+    screen.getByRole("cell", { name: user.age });
+  }
+});
