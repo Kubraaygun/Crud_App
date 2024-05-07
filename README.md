@@ -6,6 +6,8 @@
 jsdom
 vitest
 
+<h2>Proje Amacı</h2>
+
 # DevDependecy
 - Proje yayinlandiginda projenin calismasi icin gerekli olmayan ama proje gelistirilirken gelistiriciye yararli olan kutuphaneleri bu bolume indiririz
 - Bir devDependcynin silinmesi projenin calismasini etkilememeli
